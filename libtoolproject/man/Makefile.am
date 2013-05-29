@@ -1,4 +1,4 @@
-man_MANS = shelf.1
+man_MANS = bootstrapingproject.1
 
-EXTRA_DIST = shelf.1
+EXTRA_DIST = bootstrapingproject.1
 

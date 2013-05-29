@@ -24,6 +24,22 @@ perl -p -i -e 's/Bootstrapingproject/Yourprojectname/g' lib/Makefile.am
 perl -p -i -e 's/bootstrapingproject/yourprojectname/g' lib/Makefile.am
 perl -p -i -e 's/BOOTSTRAPINGPROJECT/YOURPROJECTNAME/g' lib/Makefile.am
 
+#man dir
+perl -p -i -e 's/Bootstrapingproject/Yourprojectname/g' man/Makefile.am
+perl -p -i -e 's/bootstrapingproject/yourprojectname/g' man/Makefile.am
+perl -p -i -e 's/BOOTSTRAPINGPROJECT/YOURPROJECTNAME/g' man/Makefile.am
+
+perl -p -i -e 's/Bootstrapingproject/Yourprojectname/g' man/bootstrapingproject.1
+perl -p -i -e 's/bootstrapingproject/yourprojectname/g' man/bootstrapingproject.1
+perl -p -i -e 's/BOOTSTRAPINGPROJECT/YOURPROJECTNAME/g' man/bootstrapingproject.1
+
+mv man bootstrapingproject.1 yourprojectname.1
+
+#doc dir
+perl -p -i -e 's/Bootstrapingproject/Yourprojectname/g' docs/Makefile.am
+perl -p -i -e 's/bootstrapingproject/yourprojectname/g' docs/Makefile.am
+perl -p -i -e 's/BOOTSTRAPINGPROJECT/YOURPROJECTNAME/g' docs/Makefile.am
+
 cd lib
 mv 'bootstrapingproject.deps.in' 'yourprojectname.deps.in'
 mv 'bootstrapingproject.gresource.xml' 'yourprojectname.gresource.xml'

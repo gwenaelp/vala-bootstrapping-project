@@ -82,9 +82,12 @@ am__uninstall_files_from_dir = { \
     || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
          $(am__cd) "$$dir" && rm -f $$files; }; \
   }
-am__installdirs = "$(DESTDIR)$(shelfdocdir)" \
-	"$(DESTDIR)$(shelfgtkdocdir)" "$(DESTDIR)$(shelfimgdir)"
-DATA = $(shelfdoc_DATA) $(shelfgtkdoc_DATA) $(shelfimg_DATA)
+am__installdirs = "$(DESTDIR)$(bootstrapingprojectdocdir)" \
+	"$(DESTDIR)$(bootstrapingprojectgtkdocdir)" \
+	"$(DESTDIR)$(bootstrapingprojectimgdir)"
+DATA = $(bootstrapingprojectdoc_DATA) \
+	$(bootstrapingprojectgtkdoc_DATA) \
+	$(bootstrapingprojectimg_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 ALL_LINGUAS = @ALL_LINGUAS@
@@ -250,18 +253,18 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 distclean_dirs = \
-	shelf \
+	bootstrapingproject \
 	gtk-doc \
 	$(NULL)
 
 phony_deps = \
-	shelf-doc \
-	shelf-gtk-doc \
+	bootstrapingproject-doc \
+	bootstrapingproject-gtk-doc \
 	$(NULL)
 
-shelfdocdir = $(datadir)/devhelp/references/shelf
-shelfimgdir = $(datadir)/devhelp/references/shelf/img
-shelfgtkdocdir = $(datadir)/gtk-doc/html/shelf
+bootstrapingprojectdocdir = $(datadir)/devhelp/references/bootstrapingproject
+bootstrapingprojectimgdir = $(datadir)/devhelp/references/bootstrapingproject/img
+bootstrapingprojectgtkdocdir = $(datadir)/gtk-doc/html/bootstrapingproject
 common_doc_files = \
 	*.css \
 	*.png \
@@ -270,14 +273,14 @@ common_doc_files = \
 	*.html \
 	$(NULL)
 
-shelfdoc_DATA = \
-	shelf/shelf/shelf.devhelp2 \
-	$(addprefix shelf/shelf/,$(common_doc_files)) \
+bootstrapingprojectdoc_DATA = \
+	bootstrapingproject/bootstrapingproject/bootstrapingproject.devhelp2 \
+	$(addprefix bootstrapingproject/bootstrapingproject/,$(common_doc_files)) \
 	$(NULL)
 
-shelfgtkdoc_DATA = gtk-doc/shelf/html/*
-shelfimg_DATA = \
-	shelf/shelf/img/*.png \
+bootstrapingprojectgtkdoc_DATA = gtk-doc/bootstrapingproject/html/*
+bootstrapingprojectimg_DATA = \
+	bootstrapingproject/bootstrapingproject/img/*.png \
 	$(NULL)
 
 valadoc_flags = \
@@ -288,51 +291,25 @@ valadoc_flags = \
 	$(NULL)
 
 
-# shelf documentation
-shelf_doc_files = \
+# bootstrapingproject documentation
+bootstrapingproject_doc_files = \
 	$(top_srcdir)/lib/DockController.vala \
-	$(top_srcdir)/lib/DockPreferences.vala \
-	$(top_srcdir)/lib/DockRenderer.vala \
-	$(top_srcdir)/lib/DragManager.vala \
-	$(top_srcdir)/lib/HideManager.vala \
-	$(top_srcdir)/lib/PositionManager.vala \
-	$(top_srcdir)/lib/Drawing/AnimatedRenderer.vala \
-	$(top_srcdir)/lib/Drawing/Color.vala \
-	$(top_srcdir)/lib/Drawing/DrawingService.vala \
-	$(top_srcdir)/lib/Drawing/DockSurface.vala \
-	$(top_srcdir)/lib/Drawing/DockTheme.vala \
-	$(top_srcdir)/lib/Drawing/HoverTheme.vala \
-	$(top_srcdir)/lib/Drawing/Theme.vala \
 	$(top_srcdir)/lib/Factories/AbstractMain.vala \
 	$(top_srcdir)/lib/Factories/Factory.vala \
-	$(top_srcdir)/lib/Factories/ItemFactory.vala \
-	$(top_srcdir)/lib/Items/ApplicationDockItem.vala \
-	$(top_srcdir)/lib/Items/ApplicationDockItemProvider.vala \
-	$(top_srcdir)/lib/Items/DockItem.vala \
-	$(top_srcdir)/lib/Items/DockItemProvider.vala \
-	$(top_srcdir)/lib/Items/DockItemPreferences.vala \
-	$(top_srcdir)/lib/Items/FileDockItem.vala \
-	$(top_srcdir)/lib/Items/PlankDockItem.vala \
-	$(top_srcdir)/lib/Items/TransientDockItem.vala \
 	$(top_srcdir)/lib/Services/Logger.vala \
 	$(top_srcdir)/lib/Services/Paths.vala \
-	$(top_srcdir)/lib/Services/Preferences.vala \
-	$(top_srcdir)/lib/Services/System.vala \
 	$(top_srcdir)/lib/Widgets/CompositedWindow.vala \
 	$(top_srcdir)/lib/Widgets/DockWindow.vala \
-	$(top_srcdir)/lib/Widgets/HoverWindow.vala \
-	$(top_srcdir)/lib/Widgets/PoofWindow.vala \
-	$(top_srcdir)/lib/Widgets/TitledSeparatorMenuItem.vala \
 	$(NULL)
 
-valadoc_flags_shelf = \
+valadoc_flags_bootstrapingproject = \
 	$(valadoc_flags) \
-	$(SHELF_DOCS_VALAFLAGS) \
-	--pkg shelf-internal \
+	$(BOOTSTRAPINGPROJECT_DOCS_VALAFLAGS) \
+	--pkg bootstrapingproject-internal \
 	--pkg compat \
 	--vapidir=$(top_builddir)/lib \
 	--vapidir=$(top_srcdir)/vapi \
-	$(shelf_doc_files) \
+	$(bootstrapingproject_doc_files) \
 	$(NULL)
 
 all: all-am
@@ -374,60 +351,60 @@ mostlyclean-libtool:
 
 clean-libtool:
 	-rm -rf .libs _libs
-install-shelfdocDATA: $(shelfdoc_DATA)
+install-bootstrapingprojectdocDATA: $(bootstrapingprojectdoc_DATA)
 	@$(NORMAL_INSTALL)
-	test -z "$(shelfdocdir)" || $(MKDIR_P) "$(DESTDIR)$(shelfdocdir)"
-	@list='$(shelfdoc_DATA)'; test -n "$(shelfdocdir)" || list=; \
+	test -z "$(bootstrapingprojectdocdir)" || $(MKDIR_P) "$(DESTDIR)$(bootstrapingprojectdocdir)"
+	@list='$(bootstrapingprojectdoc_DATA)'; test -n "$(bootstrapingprojectdocdir)" || list=; \
 	for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  echo "$$d$$p"; \
 	done | $(am__base_list) | \
 	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(shelfdocdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(shelfdocdir)" || exit $$?; \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(bootstrapingprojectdocdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(bootstrapingprojectdocdir)" || exit $$?; \
 	done
 
-uninstall-shelfdocDATA:
+uninstall-bootstrapingprojectdocDATA:
 	@$(NORMAL_UNINSTALL)
-	@list='$(shelfdoc_DATA)'; test -n "$(shelfdocdir)" || list=; \
+	@list='$(bootstrapingprojectdoc_DATA)'; test -n "$(bootstrapingprojectdocdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	dir='$(DESTDIR)$(shelfdocdir)'; $(am__uninstall_files_from_dir)
-install-shelfgtkdocDATA: $(shelfgtkdoc_DATA)
+	dir='$(DESTDIR)$(bootstrapingprojectdocdir)'; $(am__uninstall_files_from_dir)
+install-bootstrapingprojectgtkdocDATA: $(bootstrapingprojectgtkdoc_DATA)
 	@$(NORMAL_INSTALL)
-	test -z "$(shelfgtkdocdir)" || $(MKDIR_P) "$(DESTDIR)$(shelfgtkdocdir)"
-	@list='$(shelfgtkdoc_DATA)'; test -n "$(shelfgtkdocdir)" || list=; \
+	test -z "$(bootstrapingprojectgtkdocdir)" || $(MKDIR_P) "$(DESTDIR)$(bootstrapingprojectgtkdocdir)"
+	@list='$(bootstrapingprojectgtkdoc_DATA)'; test -n "$(bootstrapingprojectgtkdocdir)" || list=; \
 	for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  echo "$$d$$p"; \
 	done | $(am__base_list) | \
 	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(shelfgtkdocdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(shelfgtkdocdir)" || exit $$?; \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(bootstrapingprojectgtkdocdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(bootstrapingprojectgtkdocdir)" || exit $$?; \
 	done
 
-uninstall-shelfgtkdocDATA:
+uninstall-bootstrapingprojectgtkdocDATA:
 	@$(NORMAL_UNINSTALL)
-	@list='$(shelfgtkdoc_DATA)'; test -n "$(shelfgtkdocdir)" || list=; \
+	@list='$(bootstrapingprojectgtkdoc_DATA)'; test -n "$(bootstrapingprojectgtkdocdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	dir='$(DESTDIR)$(shelfgtkdocdir)'; $(am__uninstall_files_from_dir)
-install-shelfimgDATA: $(shelfimg_DATA)
+	dir='$(DESTDIR)$(bootstrapingprojectgtkdocdir)'; $(am__uninstall_files_from_dir)
+install-bootstrapingprojectimgDATA: $(bootstrapingprojectimg_DATA)
 	@$(NORMAL_INSTALL)
-	test -z "$(shelfimgdir)" || $(MKDIR_P) "$(DESTDIR)$(shelfimgdir)"
-	@list='$(shelfimg_DATA)'; test -n "$(shelfimgdir)" || list=; \
+	test -z "$(bootstrapingprojectimgdir)" || $(MKDIR_P) "$(DESTDIR)$(bootstrapingprojectimgdir)"
+	@list='$(bootstrapingprojectimg_DATA)'; test -n "$(bootstrapingprojectimgdir)" || list=; \
 	for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  echo "$$d$$p"; \
 	done | $(am__base_list) | \
 	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(shelfimgdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(shelfimgdir)" || exit $$?; \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(bootstrapingprojectimgdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(bootstrapingprojectimgdir)" || exit $$?; \
 	done
 
-uninstall-shelfimgDATA:
+uninstall-bootstrapingprojectimgDATA:
 	@$(NORMAL_UNINSTALL)
-	@list='$(shelfimg_DATA)'; test -n "$(shelfimgdir)" || list=; \
+	@list='$(bootstrapingprojectimg_DATA)'; test -n "$(bootstrapingprojectimgdir)" || list=; \
 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	dir='$(DESTDIR)$(shelfimgdir)'; $(am__uninstall_files_from_dir)
+	dir='$(DESTDIR)$(bootstrapingprojectimgdir)'; $(am__uninstall_files_from_dir)
 tags: TAGS
 TAGS:
 
@@ -469,7 +446,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(shelfdocdir)" "$(DESTDIR)$(shelfgtkdocdir)" "$(DESTDIR)$(shelfimgdir)"; do \
+	for dir in "$(DESTDIR)$(bootstrapingprojectdocdir)" "$(DESTDIR)$(bootstrapingprojectgtkdocdir)" "$(DESTDIR)$(bootstrapingprojectimgdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -522,8 +499,9 @@ info: info-am
 
 info-am:
 
-install-data-am: install-shelfdocDATA install-shelfgtkdocDATA \
-	install-shelfimgDATA
+install-data-am: install-bootstrapingprojectdocDATA \
+	install-bootstrapingprojectgtkdocDATA \
+	install-bootstrapingprojectimgDATA
 
 install-dvi: install-dvi-am
 
@@ -567,44 +545,47 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-shelfdocDATA uninstall-shelfgtkdocDATA \
-	uninstall-shelfimgDATA
+uninstall-am: uninstall-bootstrapingprojectdocDATA \
+	uninstall-bootstrapingprojectgtkdocDATA \
+	uninstall-bootstrapingprojectimgDATA
 
 .MAKE: install-am install-strip
 
 .PHONY: all all-am check check-am clean clean-generic clean-libtool \
 	distclean distclean-generic distclean-libtool distclean-local \
 	distdir dvi dvi-am html html-am info info-am install \
-	install-am install-data install-data-am install-dvi \
-	install-dvi-am install-exec install-exec-am install-html \
-	install-html-am install-info install-info-am install-man \
-	install-pdf install-pdf-am install-ps install-ps-am \
-	install-shelfdocDATA install-shelfgtkdocDATA \
-	install-shelfimgDATA install-strip installcheck \
+	install-am install-bootstrapingprojectdocDATA \
+	install-bootstrapingprojectgtkdocDATA \
+	install-bootstrapingprojectimgDATA install-data \
+	install-data-am install-dvi install-dvi-am install-exec \
+	install-exec-am install-html install-html-am install-info \
+	install-info-am install-man install-pdf install-pdf-am \
+	install-ps install-ps-am install-strip installcheck \
 	installcheck-am installdirs maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-generic \
 	mostlyclean-libtool pdf pdf-am ps ps-am uninstall uninstall-am \
-	uninstall-shelfdocDATA uninstall-shelfgtkdocDATA \
-	uninstall-shelfimgDATA
+	uninstall-bootstrapingprojectdocDATA \
+	uninstall-bootstrapingprojectgtkdocDATA \
+	uninstall-bootstrapingprojectimgDATA
 
 
-$(shelfdoc_DATA) $(shelfimg_DATA): shelf-doc
-$(shelfgtkdoc_DATA): shelf-gtk-doc
+$(bootstrapingprojectdoc_DATA) $(bootstrapingprojectimg_DATA): bootstrapingproject-doc
+$(bootstrapingprojectgtkdoc_DATA): bootstrapingproject-gtk-doc
 
-shelf-doc: $(shelf_doc_files)
+bootstrapingproject-doc: $(bootstrapingproject_doc_files)
 	$(AM_V_GEN)$(VALADOC) \
-		-o shelf/ \
+		-o bootstrapingproject/ \
 		--doclet=html \
-		$(valadoc_flags_shelf) \
+		$(valadoc_flags_bootstrapingproject) \
 		$(NULL)
 
-shelf-gtk-doc: $(shelf_doc_files)
+bootstrapingproject-gtk-doc: $(bootstrapingproject_doc_files)
 	$(AM_V_GEN)$(VALADOC) \
-		-X -l -X $(top_builddir)/lib/.libs/libshelf.so \
-		-X $(top_builddir)/lib/shelf.h \
-		-o gtk-doc/shelf \
+		-X -l -X $(top_builddir)/lib/.libs/libbootstrapingproject.so \
+		-X $(top_builddir)/lib/bootstrapingproject.h \
+		-o gtk-doc/bootstrapingproject \
 		--doclet=gtkdoc \
-		$(valadoc_flags_shelf) \
+		$(valadoc_flags_bootstrapingproject) \
 		$(NULL)
 
 .PHONY: $(phony_deps)

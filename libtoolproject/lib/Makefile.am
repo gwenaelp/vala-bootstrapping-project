@@ -63,10 +63,10 @@ libbootstrapingproject_la_LIBADD = \
 libbootstrapingproject_la_VALASOURCES = \
 	Factories/AbstractMain.vala \
 	Factories/Factory.vala \
-	DockController.vala \
+	MainController.vala \
 	System/Paths.vala \
 	System/Logger.vala \
-	Widgets/DockWindow.vala \
+	Widgets/MainWindow.vala \
 	Widgets/CompositedWindow.vala \
 	$(NULL)
 

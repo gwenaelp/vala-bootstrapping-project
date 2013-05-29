@@ -27,4 +27,3 @@ Todo
 ====
 
 - Tests are not supported in this version. (hopefully, it will be ok soon)
-- Man directory is not managed in the renaming script
