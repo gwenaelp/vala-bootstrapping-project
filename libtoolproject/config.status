@@ -405,7 +405,7 @@ on `(hostname || uname -n) 2>/dev/null | sed 1q`
 "
 
 # Files that config.status was made for.
-config_files=" Makefile data/Makefile data/apport/Makefile data/icons/Makefile data/themes/Makefile lib/Makefile lib/bootstrapingproject.deps lib/bootstrapingproject.pc man/Makefile src/Makefile docs/Makefile po/Makefile.in tests/Makefile vapi/Makefile"
+config_files=" Makefile data/Makefile lib/Makefile lib/bootstrapingproject.deps lib/bootstrapingproject.pc man/Makefile src/Makefile docs/Makefile po/Makefile.in tests/Makefile vapi/Makefile"
 config_headers=" config.h"
 config_commands=" depfiles libtool po/stamp-it"
 
@@ -585,7 +585,7 @@ FGREP='/bin/grep -F'
 LD='/usr/bin/ld -m elf_x86_64'
 NM='/usr/bin/nm -B'
 LN_S='ln -s'
-max_cmd_len='3458764513820540925'
+max_cmd_len='1572864'
 ac_objext='o'
 exeext=''
 lt_unset='unset'
@@ -762,9 +762,6 @@ do
     "libtool") CONFIG_COMMANDS="$CONFIG_COMMANDS libtool" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "data/Makefile") CONFIG_FILES="$CONFIG_FILES data/Makefile" ;;
-    "data/apport/Makefile") CONFIG_FILES="$CONFIG_FILES data/apport/Makefile" ;;
-    "data/icons/Makefile") CONFIG_FILES="$CONFIG_FILES data/icons/Makefile" ;;
-    "data/themes/Makefile") CONFIG_FILES="$CONFIG_FILES data/themes/Makefile" ;;
     "lib/Makefile") CONFIG_FILES="$CONFIG_FILES lib/Makefile" ;;
     "lib/bootstrapingproject.deps") CONFIG_FILES="$CONFIG_FILES lib/bootstrapingproject.deps" ;;
     "lib/bootstrapingproject.pc") CONFIG_FILES="$CONFIG_FILES lib/bootstrapingproject.pc" ;;
