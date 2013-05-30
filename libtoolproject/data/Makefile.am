@@ -1,7 +1,6 @@
-SUBDIRS = apport icons themes
+#SUBDIRS = 
 
-EXTRA_DIST = plank.desktop.in \
-	poof.png
+EXTRA_DIST = plank.desktop.in
 
 CLEANFILES = plank.desktop
 
